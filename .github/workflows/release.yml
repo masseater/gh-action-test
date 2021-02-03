@@ -17,9 +17,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: master
-      - run: ls
       - name: Set tag
-        run: echo "next_tag=$(ruby ~/scripts/put_tag.rb ${{ github.event.inputs.target }})" >> $GITHUB_ENV
+        run: echo "next_tag=$(ruby scripts/put_tag.rb ${{ github.event.inputs.target }})" >> $GITHUB_ENV
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
